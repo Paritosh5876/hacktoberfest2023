@@ -1,6 +1,7 @@
 # HacktoberFest2023
 # HacktoberFest 2023 `OPEN FIRST` Pull Request 🎉
-![HacktoberFest 2023](https://github.com/Paritosh5876/Hacktoberfest2023/raw/main/.github/logo.png)
+![HacktoberFest 2023](https://github.com/Paritosh5876/hacktoberfest2023/blob/main/logo.png?raw=true)
+
 
 
 ## Contributors of `Hacktoberfest 2023`
