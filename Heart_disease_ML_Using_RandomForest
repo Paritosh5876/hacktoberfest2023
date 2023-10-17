@@ -1,0 +1,90 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+df = pd.read_csv('/Users/kirtan/Downloads/heart_1.csv')
+
+df.head()
+
+df.info()
+
+df.shape
+
+df.isnull().sum()
+
+
+# # Data Visualization
+
+sns.pairplot(data=df, hue='target')
+plt.show()
+
+
+plt.figure(figsize=(12,12))
+sns.heatmap(df.corr(), cmap='jet', annot=True, linecolor='black', linewidths=0.5)
+plt.show()
+
+
+sns.countplot(data=df, x='target')
+plt.show()
+
+
+# # Train & Test Split
+
+X = df.iloc[:,:-1]
+X
+
+y = df['target']
+y
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
+
+
+# # Model
+
+
+
+RNF = RandomForestClassifier()
+
+
+
+
+RNF.fit(X_train, y_train)
+
+
+
+
+#Predictions
+y_hat = RNF.predict(X_test)
+
+
+# # Model Evaluation
+
+
+
+
+accuracy_score(y_test, y_hat)
+
+
+
+
+
+print(classification_report(y_test, y_hat))
+
+
+
+
+
+sns.heatmap(confusion_matrix(y_test, y_hat), annot=True, cmap='coolwarm', linecolor='black', linewidths=0.5)
+plt.show()
+
+
+
+
+
+
+
